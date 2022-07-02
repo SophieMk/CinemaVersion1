@@ -1,0 +1,42 @@
+{% load static}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	{% block styles %}
+	{% endblock %}
+	<title>Logo</title>
+</head>
+<body>
+	<div class="page">
+		<header>
+			<div class="container">
+				<h4 class="logo"><a href="#">Logo</a></h4>
+				<div class="menu">
+					<ul>
+						<li class="home"><a href="#">Главная</a></li>
+						<li class="anime"><a href="#">Аниме</a></li>
+						<li class="film"><a href="#">Фильмы</a></li>
+						<li class="series"><a href="#">Сериалы</a></li>
+					</ul>
+					<div class="search"><img src="images/search.svg" alt="search"></div>
+				</div>
+				<div class="profile">
+					<img src="images/incognito.png" alt="profile">
+					<div class="login">
+						<div class="login-container">
+							<img src="images/login.svg" alt="login">
+						</div>
+					</div>	
+				</div>
+			</div>
+		</header>
+		{% block main %}
+       	{% endblock %}
+		<footer></footer>
+	</div>	
+	{% block scripts %}
+	{% endblock %}
+</body>
+</html>

@@ -1,0 +1,44 @@
+
+{% extends 'base.html' %}
+
+{% block style %}
+
+<link rel="stylesheet" href="../front/CSS/style.css">
+
+{% endblock %}
+
+{% block main %}
+
+<div class="main">
+			<div class="left-border"></div>
+			<div class="right-border"></div>
+			<div class="main-container">
+				<div class="cloud"> <img src="../front/images/cloud.png" alt="cloud"></div>
+				<div class="text-zone">
+					<p>Смотри онлайн все,<br>что душа<br>пожелает!</p>
+					<a class="button" href="">Смотреть</a>
+				</div>
+				<div class="carousel">
+						<div class="button">
+							<div class="carousel-button left-button"><img src="../front/images/Left-arrow.svg" alt="<"></div>
+							<div class="carousel-button right-button"><img src="../front/images/Right-arrow.svg" alt=">"></div>
+						</div>
+						<div class="images">
+							<a class="carousel-item fade" href=""><img src="../front/images/Evangelion.jpg" alt="Evangelion"></a>
+							<a class="carousel-item fade" href=""><img src="../front/images/dr strange.jpg" alt="Dr. Strange"></a>
+							<a class="carousel-item fade" href=""><img src="../front/images/the boys.jpg" alt="The Boys"></a>
+							<div class="popular">
+								<h4>Самое популярное</h4>
+							</div>
+						</div>
+				</div>
+			</div>
+</div>
+
+{% endblock %}
+
+{% block scripts %}
+
+<script src="../front/JS/script.js"></script>
+
+{% endblock %}
