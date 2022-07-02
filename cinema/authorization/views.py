@@ -11,3 +11,5 @@ def reg_form(request):
         else:
             form =registrationForm()
         return render(request, 'auth.html', {'form' : form})
+
+
