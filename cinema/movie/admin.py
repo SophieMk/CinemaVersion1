@@ -1,6 +1,6 @@
 from django.contrib import admin
 
 # Register your models here.
-@admin.Register(Movie)
+@admin.register(Movie)
 class UserAdmin(admin.ModelAdmin):
     pass
