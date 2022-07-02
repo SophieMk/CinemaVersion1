@@ -6,7 +6,7 @@ class movie(models.Model):
     link = models.CharField(max_length = 200)
     image = models.ImageField(upload_to = 'movie')
     rate = models.IntegerField(null = False)
-    id = models.IntegerField(null = False)
+    movieId = models.IntegerField(null = False)
 
 
     class Meta:
