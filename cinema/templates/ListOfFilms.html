@@ -1,0 +1,10 @@
+{% extends 'base.html' %}
+
+{% block main %}
+{% for movie in movies %}
+<h3>{{ movie.name }}</h3>
+<img src="media/{{movie.image}}">
+<p>{{ movie.link }}</p>
+<hr>
+{% endfor %}
+{% endblock %}

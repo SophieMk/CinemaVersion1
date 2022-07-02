@@ -17,10 +17,8 @@ from django.conf import settings
 from django.conf.urls.static import static
 from django.contrib import admin
 from django.urls import path, include
-from .views import home
+from .views import allFilms
 
 urlpatterns = [
-    path('', home),
-    path('', include('authorization.urls')),
-    path('', include('movie.urls')),
+    path('films', allFilms),
 ]
