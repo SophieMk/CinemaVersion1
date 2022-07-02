@@ -1,10 +1,11 @@
 from django.template.defaulttags import url
 from django.urls import path
 
-
-from ..home.views import home
+from . import views
+#from ..home.views import home
 
 urlpatterns = [
-    url(r'^$', home),
-    path('form', views.reg_form)
+    #url(r'^$', home),
+    #path('signup/
+    path(r'form', views.reg_form),
 ]
