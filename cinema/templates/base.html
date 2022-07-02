@@ -1,10 +1,10 @@
-{% load static}
 <!DOCTYPE html>
+{% load static %}
 <html lang="en">
 <head>
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-	{% block styles %}
+	{% block style %}
 	{% endblock %}
 	<title>Logo</title>
 </head>
@@ -20,13 +20,13 @@
 						<li class="film"><a href="#">Фильмы</a></li>
 						<li class="series"><a href="#">Сериалы</a></li>
 					</ul>
-					<div class="search"><img src="images/search.svg" alt="search"></div>
+					<div class="search"><img src="{% static 'img/search.svg' %}" alt="search"></div>
 				</div>
 				<div class="profile">
-					<img src="images/incognito.png" alt="profile">
+					<img src="{% static 'img/incognito.png' %}" alt="profile">
 					<div class="login">
 						<div class="login-container">
-							<img src="images/login.svg" alt="login">
+							<img src="{% static 'img/login.svg' %}" alt="login">
 						</div>
 					</div>	
 				</div>
@@ -35,7 +35,7 @@
 		{% block main %}
        	{% endblock %}
 		<footer></footer>
-	</div>	
+	</div>
 	{% block scripts %}
 	{% endblock %}
 </body>
