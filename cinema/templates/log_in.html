@@ -1,0 +1,15 @@
+{% extends 'base.html' %}
+{% block main %}
+
+<div class="container">
+    <form method="POST">
+      <fieldset>
+        <legend>Form</legend>
+        {% csrf_token %}
+        {{ log_in.as_p }}
+        <button type="submit" class="btn btn-primary">Submit</button>
+      </fieldset>
+    </form>
+</div>
+
+{% endblock %}
