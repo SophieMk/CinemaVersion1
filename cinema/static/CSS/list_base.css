@@ -1,0 +1,8 @@
+.main-container {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.main-container .razmer {
+    margin: 2.5%;
+}

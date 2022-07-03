@@ -14,6 +14,5 @@ def all_films(request):
 def player(request, film_id):
    film = Movie.objects.get(movieId=film_id)
    magnet = make_magnet_from_file(film_id)
-   print(film.torrent.path)
-   return render(request, 'player.html', {'film': film, 'magnet': magnet, 'torrentPath': film.torrent.path})
+   return render(request, 'player.html', {'film': film, 'magnet': magnet})
 
