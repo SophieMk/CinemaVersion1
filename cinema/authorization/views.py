@@ -1,9 +1,12 @@
+from django.http import request
 from django.shortcuts import render
-from .forms import registrationForm
+from django.views.generic import TemplateView
+
+from .forms import registrationForm, log_inForm
 from .models import User, UserManager
 # Create your views here.
 
-def reg_form(request):
+def forms(request):
     if request.method == "POST":
         form = registrationForm(request.POST)
         if form.is_valid():
@@ -14,6 +17,10 @@ def reg_form(request):
             User.objects.create_user(login, password, email, ava)
     else:
         form = registrationForm()
-    return render(request, 'auth.html', {'form':form})
-
-
+    if request.method == "POST":
+        log_in = log_inForm(request.POST)
+        if log_in.is_valid():
+            log_in.save()
+    else:
+        log_in = log_inForm()
+    return render(request, 'auth.html', {'form': form, 'log_in': log_in})

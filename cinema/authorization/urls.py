@@ -7,5 +7,5 @@ from . import views
 urlpatterns = [
     #url(r'^$', home),
     #path('signup/
-    path(r'form', views.reg_form),
+    path(r'form', views.forms),
 ]
