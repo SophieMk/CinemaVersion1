@@ -9,7 +9,7 @@ class Movie(models.Model):
     image = models.ImageField(upload_to='movie')
     rate = models.IntegerField(null=False)
     movieId = models.IntegerField(null=False)
-    torrent = models.FileField(upload_to='torrent')
+    torrent = models.FileField(upload_to='torrent', null=True)
 
     class Meta:
         verbose_name = 'Фильм'

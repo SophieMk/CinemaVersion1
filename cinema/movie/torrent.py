@@ -6,8 +6,8 @@ from .models import Movie
 
 
 def make_magnet_from_file(film_id) :
-    movie = Movie.Model.get(movieId=film_id)
-    metadata = bencodepy.decode_from_file(movie.torrent)
+    movie = Movie.objects.get(movieId=film_id)
+    metadata = bencodepy.decode_from_file(movie.torrent.path)
     subj = metadata[b'info']
     hashcontents = bencodepy.encode(subj)
     digest = hashlib.sha1(hashcontents).digest()
