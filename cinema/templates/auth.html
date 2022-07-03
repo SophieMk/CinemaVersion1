@@ -2,12 +2,14 @@
 
 {% block main %}
 
-<form action="" method="post">
-    {% csrf_token %}
-    {{ log_in.as_p }}
-    <input type="submit" name="{{log_in.prefix}}" value="Submit" />
-    {{ form.as_p }}
-    <input type="submit" name="{{form.prefix}}" value="Submit" />
-</form>
-
+<div class="container">
+    <form method="POST">
+      <fieldset>
+        <legend>Form</legend>
+        {% csrf_token %}
+        {{ form.as_p }}
+        <button type="submit" class="btn btn-primary">Submit</button>
+      </fieldset>
+    </form>
+</div>
 {% endblock %}

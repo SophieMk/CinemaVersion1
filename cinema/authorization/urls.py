@@ -7,5 +7,6 @@ from . import views
 urlpatterns = [
     #url(r'^$', home),
     #path('signup/
-    path(r'form', views.forms),
+    path(r'reg_form', views.reg_form),
+    path(r'log_in', views.log_in_form),
 ]
