@@ -17,9 +17,9 @@ from django.conf import settings
 from django.conf.urls.static import static
 from django.contrib import admin
 from django.urls import path, include
-from .views import allFilms, player
+from .views import all_films, player
 
 urlpatterns = [
-    path('films', allFilms),
+    path('films', all_films),
     path('movie/<int:film_id>', player)
 ]
