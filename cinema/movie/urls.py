@@ -21,7 +21,7 @@ from .views import all_films, all_animes, all_serials, all_things, player
 
 
 urlpatterns = [
-    path('look'), all_things),
+    path('look', all_things),
     path('animes', all_animes),
     path('serials', all_serials),
     path('films', all_films),
