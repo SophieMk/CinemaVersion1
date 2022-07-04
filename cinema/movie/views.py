@@ -6,9 +6,20 @@ from django.core.files import File
 
 # Create your views here.
 
+def all_things(request):
+   movies = Movie.objects.()
+   return render(request, 'ListOfFilms.html', {'movies': movies})
 
 def all_films(request):
-   movies = Movie.objects.all()
+   movies = Movie.objects.get(type = 'Фильм')
+   return render(request, 'ListOfFilms.html', {'movies': movies})
+
+def all_animes(request):
+   movies = Movie.objects.get(type = 'Аниме')
+   return render(request, 'ListOfFilms.html', {'movies': movies})
+
+def all_serials(request):
+   movies = Movie.objects.get(type = 'Сериал')
    return render(request, 'ListOfFilms.html', {'movies': movies})
 
 
