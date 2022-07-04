@@ -13,7 +13,7 @@ class Movie(models.Model):
 
     name = models.CharField(max_length=40)
     type = models.PositiveSmallIntegerField( ("type"), choices=TYPES, null=True)
-    descryption = models.CharField(max_length=300)
+    description = models.CharField(max_length=300, null=True)
     link = models.CharField(max_length=200)
     image = models.ImageField(upload_to='movie')
     rate = models.IntegerField(null=False)
