@@ -21,7 +21,6 @@ body {
 
 
 .cardfield{
-	object-fit: cover;
 	position: static; 
 	width: 100%;
 	height: 100%;
