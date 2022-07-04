@@ -1,28 +1,32 @@
 .main-container {
     display: flex;
     flex-wrap: wrap;
+    justify-content: center;
 }
 
 
 
 .main-container .razmer {
-    margin: 2.5%;
+    margin-left: 2.5%;
+    margin-right: 2.5%;
+    margin-top: 2.5%;
+    right: 0;
+
 }
 
-@media only screen and (min-width: 450px) {
-	.razmer {
-		width: 50%;
-	}
-}
 
-@media only screen and (min-width: 768px) {
+@media only screen and (max-width: 670px) {
 	.razmer {
-		width: 33.333%;
+		width: auto;
+		height: auto;
 	}
 }
-
-@media only screen and (min-width: 1000px) {
+*/
+/*
+@media only screen and (min-width: 671px) and(max-with: ) {
 	.razmer {
-		width: 25%;
+		width: auto;
+		height: auto;
 	}
 }
+*/

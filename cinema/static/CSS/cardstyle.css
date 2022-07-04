@@ -32,20 +32,22 @@ body {
 }
 .cardimg img{
 	object-fit: cover;
-	width: auto;
-	height: 100%;
+	width: 100%;
+	height: 100%; /*Исправлена высота, мб косяк*/
 }
 
-/*.cardname{
-	overflow: hidden;
-	position: static;
+.cardname{
+    z-index: 10;
+    transform: translateY(-100%);
+	position: relative;
 	margin-top: 0%; 
-	background-color: rgba(0, 0, 0, 0.5);
+	background-color: rgba(0, 0, 0, 0.8);
 	text-align: center;
-} */
+	transition: 0.25s;
+}
 
 .carddesc{
-	transform: translateY(-5%); 
+	transform: translateY(-5%);
 	width: 100%;
 	height: 100%;
 	background-color: rgba(0, 0, 0, 0.8);
@@ -58,7 +60,6 @@ body {
 	text-align: center;
 
 }
-
 .razmer .cardfield .carddesc .description{
 	font-size: small;
 }	
@@ -85,7 +86,12 @@ body {
 }	
 
 .cardfield:hover .carddesc{
-	transform: translateY(-100%);
+	transform: translateY(-105%);
+	z-index: 20;
+}
+
+.cardfield:hover .cardname{
+	transform: translateY(-2200%);
 	z-index: 20;
 }
 
