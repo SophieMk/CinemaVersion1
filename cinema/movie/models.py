@@ -6,18 +6,19 @@ from django.db import models
 class Movie(models.Model):
 
     TYPES = {
-        (1, 'Anime'),
-        (2, 'Films'),
-        (3, 'Serials')
+        (1, 'Аниме'),
+        (2, 'Фильм'),
+        (3, 'Сериал')
     }
 
     name = models.CharField(max_length=40)
+    type = models.PositiveSmallIntegerField( ("type"), choices=TYPES, null=True)
+    description = models.CharField(max_length=300)
     link = models.CharField(max_length=200)
     image = models.ImageField(upload_to='movie')
     rate = models.IntegerField(null=False)
     movieId = models.IntegerField(null=False)
     torrent = models.FileField(upload_to='torrent', null=True)
-    type = models.PositiveSmallIntegerField( ("type"), choices=TYPES)
 
 
     class Meta:
