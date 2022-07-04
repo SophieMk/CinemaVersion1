@@ -3,6 +3,26 @@
     flex-wrap: wrap;
 }
 
+
+
 .main-container .razmer {
     margin: 2.5%;
+}
+
+@media only screen and (min-width: 450px) {
+	.razmer {
+		width: 50%;
+	}
+}
+
+@media only screen and (min-width: 768px) {
+	.razmer {
+		width: 33.333%;
+	}
+}
+
+@media only screen and (min-width: 1000px) {
+	.razmer {
+		width: 25%;
+	}
 }
