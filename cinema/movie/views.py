@@ -7,7 +7,7 @@ from django.core.files import File
 # Create your views here.
 
 def all_things(request):
-   movies = Movie.objects.()
+   movies = Movie.objects.all()
    return render(request, 'ListOfFilms.html', {'movies': movies})
 
 def all_films(request):
