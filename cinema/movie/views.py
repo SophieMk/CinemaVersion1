@@ -11,15 +11,15 @@ def all_things(request):
    return render(request, 'ListOfFilms.html', {'movies': movies})
 
 def all_films(request):
-   movies = Movie.objects.get(type = 'Фильм')
+   movies = Movie.objects.get(type = 2)
    return render(request, 'ListOfFilms.html', {'movies': movies})
 
 def all_animes(request):
-   movies = Movie.objects.get(type = 'Аниме')
+   movies = Movie.objects.get(type = 1)
    return render(request, 'ListOfFilms.html', {'movies': movies})
 
 def all_serials(request):
-   movies = Movie.objects.get(type = 'Сериал')
+   movies = Movie.objects.get(type = 3)
    return render(request, 'ListOfFilms.html', {'movies': movies})
 
 
