@@ -8,10 +8,10 @@
 }
 
 body {
-    
+    display: grid;
 	background-color: #222D48;
 	width: 100%;
-	height: max(100vh, 100%);
+	min-height: 95vh;
 }
 
 .page {
