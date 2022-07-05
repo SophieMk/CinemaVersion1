@@ -73,11 +73,56 @@ body {
 	list-style: none;
 }
 
+.show_menu{
+    z-index: 100;
+	width: 100%;
+	height: 100%;
+    font-size: 24px;
+}
+
+.hide_menu{
+    z-index: 0;
+    width: 100%;
+	height: 100%;
+    font-size: 0px;
+}
+
+.bar_container{
+    position: absolute;
+    width: 35%;
+    height: 30%;
+    overflow: hidden;
+}
+
+.search_bar {
+    transition: 0.5s;
+}
+
+.search_bar.hide{
+    transform: translateX(125%);
+}
+
+.search_bar.show{
+    transform: translateX(0%);
+}
 
 .menu .search {
-	position: relative;
+	position: right;
 	margin-left: max(7.5%, 20px);
 	cursor: pointer;
+}
+
+.menu .search_bar {
+    color: white;
+    padding-left: 1%;
+    outline: none;
+    border-style: solid;
+    border-color: pink;
+    font-size: 20px;
+    width: 100%;
+    height: 100%;
+    background-color: #14396C;
+    border-radius: 10px;
 }
 
 .profile{
