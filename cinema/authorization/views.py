@@ -57,3 +57,6 @@ def log_in_form(request, self=None):
     else:
         log_in = log_inForm()
     return render(request, 'log_in.html', {'log_in': log_in})
+
+
+
