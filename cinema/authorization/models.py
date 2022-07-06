@@ -1,9 +1,25 @@
+import generics as generics
 from django.db import models
+from django.shortcuts import redirect
+
 
 class UserManager(models.Manager):
     def create_user(self, login, password, email, ava):
         user = self.create(login=login, password=password, email=email, ava=ava)
         return user
+
+    def get_password(self, log):
+        user = User.objects.get(login=log)
+        return user.password
+
+    def get_email(self, log):
+        user = User.objects.get(login=log)
+        return user.email
+
+    def get_ava(self, log):
+        user = User.objects.get(login=log)
+        print(user.ava)
+
 
 class User(models.Model):
     login = models.CharField(max_length=20)

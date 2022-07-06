@@ -21,5 +21,5 @@ from .views import allFilms, player
 
 urlpatterns = [
     path('films', allFilms),
-    path('movie/<int:film_id>', player)
+    path('movie/<int:film_id>', player),
 ]

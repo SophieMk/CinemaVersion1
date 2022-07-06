@@ -22,7 +22,12 @@
 					<div class="search"><img src="{% static 'img/search.svg' %}" alt="search"></div>
 				</div>
 				<div class="profile">
-					<img src="{% static 'img/incognito.png' %}" alt="profile">
+					{% if logged_in %}
+						<img src="media/{{user.ava}}" alt="profile">
+					{% else %}
+						<img src="{% static 'img/incognito.png' %}" alt="profile">
+					{% endif %}
+					<img src="{{user.ava}}" alt="profile">
 					<div class="login">
 						<div class="login-container">
 							<img src="{% static 'img/login.svg' %}" alt="login">
