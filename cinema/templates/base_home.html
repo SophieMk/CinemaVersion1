@@ -11,15 +11,20 @@
 	<div class="page">
 		<header>
 			<div class="container">
-				<h4 class="logo"><a href="#">Logo</a></h4>
+				<h4 class="logo"><a href="http://127.0.0.1:8000/">Logo</a></h4>
 				<div class="menu">
-					<ul>
-						<li class="home"><a href="#">Главная</a></li>
-						<li class="anime"><a href="#">Аниме</a></li>
-						<li class="film"><a href="http://127.0.0.1:8000/films">Фильмы</a></li>
-						<li class="series"><a href="#">Сериалы</a></li>
-					</ul>
-					<div class="search"><img src="{% static 'img/search.svg' %}" alt="search"></div>
+					<div class="show_menu" id="menu_without_search">
+						<ul>
+							<li class="home"><a href="http://127.0.0.1:8000/">Главная</a></li>
+							<li class="anime"><a href="http://127.0.0.1:8000/animes">Аниме</a></li>
+							<li class="film"><a href="http://127.0.0.1:8000/films">Фильмы</a></li>
+							<li class="series"><a href="http://127.0.0.1:8000/serials">Сериалы</a></li>
+						</ul>
+					</div>
+					<div class="bar_container">
+						<input type="text" class="search_bar hide" id="search_bar" placeholder="Название фильма, сериала, аниме и т.д."/>
+					</div>
+					<div class="search" id="search" onclick="ShowHide_Menu(); OpenClose_SearchBar();"><img src="{% static 'img/search.svg' %}" alt="search"></div>
 				</div>
 				<div class="profile">
 					{% if logged_in %}
