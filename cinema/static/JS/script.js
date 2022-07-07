@@ -39,13 +39,11 @@ function showSlides(n) {
   slides[slideIndex-1].style.display = "block";
 }
 
-leftButton.onclick=function(){
+leftButton.onclick = function(){
   plusSlides(-1);
-  showSlides(slideIndex);
 }
-rightButton.onclick=function(){
+rightButton.onclick = function(){
   plusSlides(1);
-  showSlides(slideIndex);
 }
 
 

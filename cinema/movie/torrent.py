@@ -5,7 +5,7 @@ import base64
 from .models import Movie
 
 
-def make_magnet_from_file(film_id) :
+def make_magnet_from_file(film_id):
     movie = Movie.objects.get(movieId=film_id)
     metadata = bencodepy.decode_from_file(movie.torrent.path)
     subj = metadata[b'info']
@@ -15,7 +15,7 @@ def make_magnet_from_file(film_id) :
     return 'magnet:?'\
              + 'xt=urn:btih:' + b32hash\
              + '&dn=' + metadata[b'info'][b'name'].decode()\
-             + '&tr=' + metadata[b'announce'].decode()\
+             + '&tr=' + metadata[b'announce'].decode() + '&tr=wss%3A%2F%2Ftracker.btorrent.xyz&tr=wss%3A%2F%2Ftracker.fastcast.nz&tr=wss%3A%2F%2Ftracker.openwebtorrent.com'\
              + '&xl=' + str(metadata[b'info'][b'length'])
 
 
