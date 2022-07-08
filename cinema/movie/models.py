@@ -3,6 +3,10 @@ from django.db import models
 # Create your models here.
 
 
+class nScore(models.Model):
+    amount = models.IntegerField()
+    inter_score = models.SmallIntegerField()
+
 class Movie(models.Model):
 
     TYPES = {
@@ -19,6 +23,7 @@ class Movie(models.Model):
     rate = models.IntegerField(null=False)
     movieId = models.IntegerField(null=False)
     torrent = models.FileField(upload_to='torrent', null=True)
+    movieTotalScore = models.ForeignKey(nScore, on_delete=models.CASCADE, null=True)
 
 
     class Meta:

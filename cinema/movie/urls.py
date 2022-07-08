@@ -17,6 +17,8 @@ from django.conf import settings
 from django.conf.urls.static import static
 from django.contrib import admin
 from django.urls import path, include
+
+from . import views
 from .views import all_films, all_animes, all_serials, all_things, player
 
 
@@ -25,5 +27,6 @@ urlpatterns = [
     path('animes', all_animes),
     path('serials', all_serials),
     path('films', all_films),
-    path('movie/<int:film_id>', player)
+    path('movie/<int:film_id>', player),
+    path('movie/url', views.movieScore_form),
 ]

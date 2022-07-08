@@ -2,6 +2,10 @@ import generics as generics
 from django.db import models
 from django.shortcuts import redirect
 
+#class movieScore(models.Model):
+#    movieId = models.IntegerField(null=False)
+#    score = models.SmallIntegerField()
+
 
 class UserManager(models.Manager):
     def create_user(self, login, password, email, ava):
@@ -26,7 +30,7 @@ class User(models.Model):
     password = models.CharField(max_length=20)
     email = models.CharField(max_length=50)
     ava = models.ImageField(upload_to='avatar', blank=True)
-
+    #movie = models.ForeignKey(movieScore)
     objects = UserManager()
 
     class Meta:
