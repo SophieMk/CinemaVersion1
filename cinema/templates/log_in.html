@@ -4,10 +4,11 @@
 <div class="container">
     <form method="POST">
       <fieldset>
-        <legend>Form</legend>
+        <legend>Вход</legend>
         {% csrf_token %}
         {{ log_in.as_p }}
-        <button type="submit" class="btn btn-primary">Submit</button>
+          <button type="submit" class="btn btn-primary">Log-in</button>
+          <a href="http://127.0.0.1:8000/reg_form">Register</a>
       </fieldset>
     </form>
 </div>

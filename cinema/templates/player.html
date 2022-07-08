@@ -1,9 +1,31 @@
 {% extends 'base.html' %}
 {% load static %}
 
-{% block main %}
-    <div class="myVideo"></div>
+{% block styles %}
+    <link rel="stylesheet" href="{% static 'CSS/pleer.css'%}">
+{% endblock %}
 
+{% block main %}
+    <div class="movie-name"><h1>{{film.name}}</h1></div>
+    <div class="movie-img"><img src="media/{{ film.image }}" alt=""></div>
+    <div class="movie-description"><p>{{film.description}}</p></div>
+    <div class="myVideo"></div>
+    <form action="url" method="post">
+        {% csrf_token %}
+        <label for="select-estimation"></label>
+        <select name="estimation" id="select-estimation">
+            <option value="1">1</option>
+            <option value="2">2</option>
+            <option value="3">3</option>
+            <option value="4">4</option>
+            <option value="5">5</option>
+            <option value="6">6</option>
+            <option value="7">7</option>
+            <option value="8">8</option>
+            <option value="9">9</option>
+            <option value="10">10</option>
+        </select>
+    </form>
     <!-- Include WebTorrent -->
     <script src="https://cdn.jsdelivr.net/npm/webtorrent@latest/webtorrent.min.js"></script>
     <script src="{% static 'JS/torrent.js' %}" magnet="{{magnet}}"></script>
