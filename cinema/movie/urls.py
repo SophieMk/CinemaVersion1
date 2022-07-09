@@ -34,7 +34,7 @@ urlpatterns = [
     path('<int:user_id>/animes', all_animes_logged_in),
     path('<int:user_id>/serials', all_serials_logged_in),
     path('<int:user_id>/films', all_films_logged_in),
-    path('<int:user_id>/movie/<int:film_id>', player_logged_in)
-    path('movie/<int:film_id>', player),
+    path('<int:user_id>/movie/<int:film_id>', player_logged_in),
     path('movie/<int:film_id>/estimate', views.total_score),
+    path('<int:user_id>/movie/<int:film_id>/estimate', views.total_score),
 ]

@@ -35,6 +35,7 @@ def reg_form(request):
             password = form.cleaned_data.get("password")
             email = form.cleaned_data.get("email")
             ava = form.cleaned_data.get("ava")
+            print(ava)
             User.objects.create_user(login, password, email, ava)
             return redirect('http://127.0.0.1:8000/')
     else:
