@@ -16,14 +16,14 @@
 .auth_field {
     position: absolute;
     height: 60%;
-    width: 40%;
-    left: 30%;
+    width: 35%;
+    left: 32.5%;
     top: 16%;
 }
 
 .auth_text {
 	font-size: 25px;
-	line-height: 2;
+	line-height: 1.9;
     padding-left: 15%;
     padding-right: 15%;
     padding-bottom: 2%;
@@ -32,16 +32,19 @@
 
 .auth_field_container .buttons {
     text-align: center;
+    margin-top: 5%;
 }
 
 .auth_field_container button{
     cursor: pointer;
-    font-size: 25px;
+    font-size: 27px;
     color: white;
-    background-color: #0e1627;;
+    background-color: #cd00d1;
     border-style: none;
 	border-radius: 20px;
-	padding: 5px;
+	padding: 7.5px;
+	padding-left: 30px;
+	padding-right: 30px;
 }
 
 .text_before_login {
@@ -55,6 +58,9 @@
     background-color: #0e1627;;
 	border-radius: 20px;
 	padding: 5px;
+	padding: 7.5px;
+	padding-left: 30px;
+	padding-right: 30px;
 }
 
 .auth_field_container input {
