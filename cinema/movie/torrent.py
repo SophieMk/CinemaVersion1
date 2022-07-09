@@ -16,6 +16,6 @@ def make_magnet_from_file(film_id):
              + 'xt=urn:btih:' + b32hash\
              + '&dn=' + metadata[b'info'][b'name'].decode()\
              + '&tr=' + metadata[b'announce'].decode() + '&tr=wss%3A%2F%2Ftracker.btorrent.xyz&tr=wss%3A%2F%2Ftracker.fastcast.nz&tr=wss%3A%2F%2Ftracker.openwebtorrent.com'\
-             + '&xl=' + str(metadata[b'info'][b'length'])
+             + '&xl=' + str(metadata[b'info'][b'piece length'])
 
 

@@ -12,17 +12,43 @@ client.on('error', function (err) {
       })
 
 
-
 client.add(torrentId, opts = {}, function (torrent) {
   // Torrents can contain many files. Let's use the .mp4 file
   setInterval(console.log(torrent.received), 1000)
-  const file = torrent.files.find(function (file) {
-    return file.name.endsWith('.mp4')
+  const files = torrent.files.filter(function (file) {
+    return file.name.endsWith('.mp4') || file.name.endsWith('.mkv')
   })
-
+  if (files.length == 1) {
+    files[0].appendTo('.myVideo')
+  }
+  else {
+    let mainContainer = document.querySelector(".main-container")
+    let select = document.createElement("select")
+    let myVideo = document.querySelector(".myVideo")
+    select.classList.add('my-select')
+    let option = document.createElement("option");
+    option.text = '---';
+    select.append(option)
+    for (let i = 0; i < files.length; i++){
+        let option = document.createElement("option");
+        option.value = i;
+        option.text = i + 1;
+        select.append(option)
+        console.log('a')
+    }
+    mainContainer.append(select)
+    select.addEventListener("change", ()=>{
+        current = select.value
+        torrent.select(files[current], files[current+1])
+        console.log(files[current].name)
+        myVideo.innerHTML = '';
+        console.log(current)
+        files[current].appendTo('.myVideo')
+    })
+  }
   // Display the file by adding it to the DOM. Supports video, audio, image, etc. files
-  file.appendTo('.myVideo')
 })
+
 
 },{"webtorrent":122}],2:[function(require,module,exports){
 const ADDR_RE = /^\[?([^\]]+)]?:(\d+)$/ // ipv4/ipv6/hostname + port
