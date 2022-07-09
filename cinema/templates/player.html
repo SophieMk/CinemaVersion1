@@ -7,10 +7,10 @@
 
 {% block main %}
     <div class="movie-name"><h1>{{film.name}}</h1></div>
-    <div class="movie-img"><img src="media/{{ film.image }}" alt=""></div>
+    <div class="movie-img"><img src="{{BASE_DIR}}/media/{{ film.image }}" alt=""></div>
     <div class="movie-description"><p>{{film.description}}</p></div>
     <div class="myVideo"></div>
-    <form action="url" method="post">
+    <form action="url" method="post" {% if not logged_in %}style="display:none"{% endif %}>
         {% csrf_token %}
         <label for="select-estimation"></label>
         <select name="estimation" id="select-estimation">

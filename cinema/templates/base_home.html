@@ -11,14 +11,14 @@
 	<div class="page">
 		<header>
 			<div class="container">
-				<h4 class="logo"><a href="http://127.0.0.1:8000/">Viewell</a></h4>
+				<h4 class="logo"><a href="{{BASE_DIR}}/{% if logged_in %}{{user.id}}{% endif %}">Viewell</a></h4>
 				<div class="menu">
 					<div class="show_menu" id="menu_without_search">
 						<ul>
-							<li class="home"><a href="http://127.0.0.1:8000/">Главная</a></li>
-							<li class="anime"><a href="http://127.0.0.1:8000/animes">Аниме</a></li>
-							<li class="film"><a href="http://127.0.0.1:8000/films">Фильмы</a></li>
-							<li class="series"><a href="http://127.0.0.1:8000/serials">Сериалы</a></li>
+							<li class="home"><a href="{{BASE_DIR}}/{% if logged_in %}{{user.id}}{% endif %}">Главная</a></li>
+							<li class="anime"><a href="{{BASE_DIR}}/{% if logged_in %}{{user.id}}/{% endif %}animes">Аниме</a></li>
+							<li class="film"><a href="{{BASE_DIR}}/{% if logged_in %}{{user.id}}/{% endif %}films">Фильмы</a></li>
+							<li class="series"><a href="{{BASE_DIR}}/{% if logged_in %}{{user.id}}/{% endif %}serials">Сериалы</a></li>
 						</ul>
 					</div>
 					<div class="bar_container">
@@ -28,14 +28,13 @@
 				</div>
 				<div class="profile">
 					{% if logged_in %}
-						<img src="media/{{user.ava}}" alt="profile">
+						<img src="{{BASE_DIR}}/media/{{user.ava}}" alt="profile">
 					{% else %}
 						<img src="{% static 'img/incognito.png' %}" alt="profile">
 					{% endif %}
-					<img src="{{user.ava}}" alt="profile">
-					<div class="login">
+					<div class="login" {% if logged_in %} style="display: none" {% endif %}>
 						<div class="login-container">
-							<a href="http://127.0.0.1:8000/log_in"><img src="{% static 'img/login.svg' %}" alt="login"></a>
+							<a href="{{BASE_DIR}}/log_in"><img src="{% static 'img/login.svg' %}" alt="login"></a>
 						</div>
 					</div>	
 				</div>
