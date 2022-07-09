@@ -10,7 +10,7 @@ client.add(torrentId, onTorrent)
 
 function onTorrent (torrent) {
     torrent.files.forEach(function (file) {
-        if (file.name.endsWith('.mp4'))
+        if (file.name.endsWith('.mp4') || file.name.endsWith('.mkv'))
         {
             file.appendTo('.myVideo')
         }

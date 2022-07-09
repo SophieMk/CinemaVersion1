@@ -43,6 +43,10 @@
     display: block;
 }
 
+.myVideo {
+    z-index: 100;
+}
+
 .myVideo video{
     background-color: #0e1627;
     margin: 5%;
