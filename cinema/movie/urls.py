@@ -28,5 +28,5 @@ urlpatterns = [
     path('serials', all_serials),
     path('films', all_films),
     path('movie/<int:film_id>', player),
-    path('movie/url', views.movieScore_form),
+    path('movie/<int:film_id>/estimate', views.total_score),
 ]

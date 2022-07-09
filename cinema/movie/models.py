@@ -1,14 +1,13 @@
 from django.db import models
 
-# Create your models here.
-
-
-class nScore(models.Model):
-    amount = models.IntegerField()
-    inter_score = models.SmallIntegerField()
+class MovieManager(models.Manager):
+    def get_name(self, movie_id):
+        movie = Movie.objects.get(movieId=movie_id)
+        return movie.name
 
 class Movie(models.Model):
 
+    objects = MovieManager()
     TYPES = {
         (1, 'Аниме'),
         (2, 'Фильм'),
@@ -23,8 +22,9 @@ class Movie(models.Model):
     rate = models.IntegerField(null=False)
     movieId = models.IntegerField(null=False)
     torrent = models.FileField(upload_to='torrent', null=True)
-    movieTotalScore = models.ForeignKey(nScore, on_delete=models.CASCADE, null=True)
-
+    NUsersEstimated = models.IntegerField(null=True)
+    inter_score = models.FloatField(null=True)
+    movieTotalScore = models.FloatField(null=True)
 
     class Meta:
         verbose_name = 'Фильм'

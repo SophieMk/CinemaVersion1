@@ -1,5 +1,5 @@
 import io
-from django.shortcuts import render
+from django.shortcuts import render, redirect
 
 from .forms import movieScore_form
 from .models import Movie
@@ -29,18 +29,21 @@ def player(request, film_id):
    magnet = make_magnet_from_file(film_id)
    return render(request, 'player.html', {'film': film, 'magnet': magnet})
 
-
+global movie
 def total_score(request, film_id):
    if request.method == "POST":
       print('okey')
-      score = request.GET.get('estimate', '')
-      #score = form.cleaned_data.get("score")
+      score = request.POST["estimation"]
       movie = Movie.objects.get(movieId=film_id)
-      movie.nScore.inter_score += score
-      movie.nScore.amount += 1
-      movie.movieTotalScore = movie.nScore.inter_score / movie.nScore.amount
+      if movie.inter_score == None:
+         movie.inter_score = float(score)
+      else:
+         movie.inter_score = movie.inter_score + float(score)
+      if movie.NUsersEstimated == None:
+         movie.NUsersEstimated = 1
+      else:
+         movie.NUsersEstimated += 1
+      movie.movieTotalScore = movie.inter_score / movie.NUsersEstimated
+      movie.save()
       print(movie.movieTotalScore)
-         #HttpResponseRedirect()
-   else:
-      form = movieScore_form()
-   return render(request, 'player.html', {'form': form})
+   return redirect("http://127.0.0.1:8000/" + "movie/" + str(film_id))

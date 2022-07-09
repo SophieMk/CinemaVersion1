@@ -10,7 +10,7 @@
     <div class="movie-img"><img src="media/{{ film.image }}" alt=""></div>
     <div class="movie-description"><p>{{film.description}}</p></div>
     <div class="myVideo"></div>
-    <form action="url" method="post">
+    <form action="{{request.path}}/estimate" method="post">
         {% csrf_token %}
         <label for="select-estimation"></label>
         <select name="estimation" id="select-estimation">
