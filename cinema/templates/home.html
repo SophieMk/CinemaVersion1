@@ -11,7 +11,7 @@
 				<div class="cloud"> <img src="{% static 'img/cloud.png' %}" alt="cloud"></div>
 				<div class="text-zone">
 					<p>Смотри онлайн все,<br>что душа<br>пожелает!</p>
-					<a class="button" href="http://127.0.0.1:8000/look">Смотреть</a>
+					<a class="button" href="{% if logged_in %}{{user.id}}{% endif %}/look">Смотреть</a>
 				</div>
 				<div class="carousel">
 						<div class="button">
