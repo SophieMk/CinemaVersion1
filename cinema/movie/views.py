@@ -29,7 +29,7 @@ def all_serials(request):
 
 
 def player(request, film_id):
-   film = Movie.objects.get(movieId=film_id)
+   film = Movie.objects.get(pk=film_id)
    magnet = make_magnet_from_file(film_id)
    return render(request, 'player.html', {'film': film, 'magnet': magnet, 'logged_in': False})
 
@@ -56,7 +56,7 @@ def all_serials_logged_in(request, user_id):
 
 def player_logged_in(request, film_id, user_id):
    user = User.objects.get(id=user_id)
-   film = Movie.objects.get(movieId=film_id)
+   film = Movie.objects.get(pk=film_id)
    magnet = make_magnet_from_file(film_id)
    return render(request, 'player.html', {'film': film, 'user': user, 'logged_in': True, 'magnet': magnet})
 
@@ -64,7 +64,7 @@ def total_score(request, film_id):
    if request.method == "POST":
       print('okey')
       score = request.POST["estimation"]
-      movie = Movie.objects.get(movieId=film_id)
+      movie = Movie.objects.get(pk=film_id)
       if movie.inter_score == None:
          movie.inter_score = float(score)
       else:
@@ -82,7 +82,7 @@ def total_score(request, user_id, film_id):
    if request.method == "POST":
       print('okey')
       score = request.POST["estimation"]
-      movie = Movie.objects.get(movieId=film_id)
+      movie = Movie.objects.get(pk=film_id)
       if movie.inter_score == None:
          movie.inter_score = float(score)
       else:

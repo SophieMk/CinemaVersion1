@@ -14,7 +14,7 @@
         </div>
     </div>
     <div class="myVideo"></div>
-    <form action="{{request.path}}/estimate" method="post">
+    <form action="{{request.path}}/estimate" method="post" {% if not logged_in %}style="display: none"{% endif %}>
         {% csrf_token %}
         <label for="select-estimation"></label>
         <select name="estimation" id="select-estimation">

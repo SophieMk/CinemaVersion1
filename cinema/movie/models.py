@@ -17,14 +17,11 @@ class Movie(models.Model):
     name = models.CharField(max_length=40)
     type = models.PositiveSmallIntegerField( ("type"), choices=TYPES, null=True)
     description = models.CharField(max_length=300, null=True)
-    link = models.CharField(max_length=200)
     image = models.ImageField(upload_to='movie')
-    rate = models.IntegerField(null=False)
-    movieId = models.IntegerField(null=False)
     torrent = models.FileField(upload_to='torrent', null=True)
-    NUsersEstimated = models.IntegerField(null=True)
-    inter_score = models.FloatField(null=True)
-    movieTotalScore = models.FloatField(null=True)
+    NUsersEstimated = models.IntegerField(null=True, blank=True)
+    inter_score = models.FloatField(null=True, blank=True)
+    movieTotalScore = models.FloatField(null=True, blank=True)
 
     class Meta:
         verbose_name = 'Фильм'
