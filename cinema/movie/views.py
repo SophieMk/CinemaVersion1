@@ -15,13 +15,16 @@ def all_things(request):
    movies = Movie.objects.all()
    return render(request, 'ListOfFilms.html', {'movies': movies, 'logged_in': False})
 
+
 def all_films(request):
    movies = Movie.objects.filter(type = 2)
    return render(request, 'ListOfFilms.html', {'movies': movies, 'logged_in': False})
 
+
 def all_animes(request):
    movies = Movie.objects.filter(type = 1)
    return render(request, 'ListOfFilms.html', {'movies': movies, 'logged_in': False})
+
 
 def all_serials(request):
    movies = Movie.objects.filter(type = 3)
@@ -33,20 +36,24 @@ def player(request, film_id):
    magnet = make_magnet_from_file(film_id)
    return render(request, 'player.html', {'film': film, 'magnet': magnet, 'logged_in': False})
 
+
 def all_things_logged_in(request, user_id):
    user = User.objects.get(id=user_id)
    movies = Movie.objects.all()
    return render(request, 'ListOfFilms.html', {'movies': movies, 'user': user, 'logged_in': True})
+
 
 def all_films_logged_in(request, user_id):
    user = User.objects.get(id=user_id)
    movies = Movie.objects.filter(type = 2)
    return render(request, 'ListOfFilms.html', {'movies': movies, 'user': user, 'logged_in': True})
 
+
 def all_animes_logged_in(request, user_id):
    user = User.objects.get(id=user_id)
    movies = Movie.objects.filter(type = 1)
    return render(request, 'ListOfFilms.html', {'movies': movies, 'user': user, 'logged_in': True})
+
 
 def all_serials_logged_in(request, user_id):
    user = User.objects.get(id=user_id)
@@ -59,6 +66,7 @@ def player_logged_in(request, film_id, user_id):
    film = Movie.objects.get(pk=film_id)
    magnet = make_magnet_from_file(film_id)
    return render(request, 'player.html', {'film': film, 'user': user, 'logged_in': True, 'magnet': magnet})
+
 
 def total_score(request, film_id):
    if request.method == "POST":
@@ -78,6 +86,7 @@ def total_score(request, film_id):
       print(movie.movieTotalScore)
    return redirect("http://127.0.0.1:8000/" + "movie/" + str(film_id))
 
+
 def total_score(request, user_id, film_id):
    if request.method == "POST":
       print('okey')
@@ -95,3 +104,17 @@ def total_score(request, user_id, film_id):
       movie.save()
       print(movie.movieTotalScore)
    return redirect("http://127.0.0.1:8000/" + str(user_id) + "/movie/" + str(film_id))
+
+
+def incl(a, b):
+   if b.find(a, 1, len(b)):
+      return 1
+   return 0
+
+
+def all_search(request):
+   if request.method == "POST":
+      request_str = request.POST["search_request"]
+      movies = Movie.objects.filter(name__icontains=request_str)
+   return render(request, 'ListOfFilms.html', {'movies': movies})
+
