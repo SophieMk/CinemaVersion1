@@ -23,7 +23,7 @@
 							<li class="series"><a href="{{BASE_DIR}}/{% if logged_in %}{{user.id}}/{% endif %}serials">Сериалы</a></li>
 						</ul>
 					</div>
-					<form class="bar_container" action="search" method="post">
+					<form class="bar_container" action="{{BASE_DIR}}/{% if logged_in %}{{user.id}}/{% endif %}search" method="post">
 						{% csrf_token %}
 						<input type="text" class="search_bar hide" name="search_request" id="search_bar" placeholder="Название фильма, сериала, аниме и т.д."/>
 						<input type="submit" value="Submit">

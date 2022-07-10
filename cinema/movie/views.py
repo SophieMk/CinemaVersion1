@@ -106,15 +106,16 @@ def total_score(request, user_id, film_id):
    return redirect("http://127.0.0.1:8000/" + str(user_id) + "/movie/" + str(film_id))
 
 
-def incl(a, b):
-   if b.find(a, 1, len(b)):
-      return 1
-   return 0
-
-
 def all_search(request):
    if request.method == "POST":
       request_str = request.POST["search_request"]
-      movies = Movie.objects.filter(name__icontains=request_str)
-   return render(request, 'ListOfFilms.html', {'movies': movies})
+      movies = Movie.objects.filter(name_lower__contains=request_str.lower())
+   return render(request, 'ListOfFilms.html', {'movies': movies, 'logged_in': False})
+
+def all_search_logged_in(request, user_id):
+   user = User.objects.get(id=user_id)
+   if request.method == "POST":
+      request_str = request.POST["search_request"]
+      movies = Movie.objects.filter(name_lower__contains=request_str.lower())
+   return render(request, 'ListOfFilms.html', {'movies': movies, 'user': user, 'logged_in': True})
 

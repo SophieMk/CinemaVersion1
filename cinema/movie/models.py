@@ -22,6 +22,11 @@ class Movie(models.Model):
     NUsersEstimated = models.IntegerField(null=True, blank=True)
     inter_score = models.FloatField(null=True, blank=True)
     movieTotalScore = models.FloatField(null=True, blank=True)
+    name_lower = models.CharField(max_length=255, null=True, editable=False)
+
+    def save(self, *args, **kwargs):
+        self.name_lower = self.name.lower() if self.name else None
+        return super().save(*args, **kwargs)
 
     class Meta:
         verbose_name = 'Фильм'

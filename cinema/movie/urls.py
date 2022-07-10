@@ -18,7 +18,7 @@ from django.conf.urls.static import static
 from django.contrib import admin
 from django.urls import path, include
 from .views import all_films, all_animes, all_serials, all_things, player, all_things_logged_in, all_animes_logged_in, \
-    all_serials_logged_in, all_films_logged_in, player_logged_in, all_search
+    all_serials_logged_in, all_films_logged_in, player_logged_in, all_search, all_search_logged_in
 
 from . import views
 from .views import all_films, all_animes, all_serials, all_things, player
@@ -37,5 +37,6 @@ urlpatterns = [
     path('<int:user_id>/movie/<int:film_id>', player_logged_in),
     path('movie/<int:film_id>/estimate', views.total_score),
     path('<int:user_id>/movie/<int:film_id>/estimate', views.total_score),
-    path('search', all_search)
+    path('search', all_search),
+    path('<int:user_id>/search', all_search_logged_in),
 ]
