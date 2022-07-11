@@ -1,10 +1,23 @@
 from django.db import models
-from django.shortcuts import redirect
 
-#class movieScore(models.Model):
-#    movieId = models.IntegerField(null=False)
-#    score = models.SmallIntegerField()
+class MSManager(models.Manager):
+    def create_movie(self, movie_id, name, score, user_id):
+        movie = self.create(movieId=movie_id, movie_name=name, score=score, user_id=user_id)
+        return movie
 
+class movieScore(models.Model):
+    movieId = models.IntegerField(null=True)
+    movie_name = models.CharField(max_length=50, null=True)
+    score = models.IntegerField(null=True)
+    user_id = models.IntegerField(null=True)
+    objects = MSManager()
+
+    class Meta:
+        verbose_name = 'Оценка'
+        verbose_name_plural = 'Оценки'
+
+    def __str__(self):
+        return str(self.movie_name) + " оценено на " + str(self.score) + " баллов;"
 
 class UserManager(models.Manager):
     def create_user(self, login, password, email, ava):
@@ -23,13 +36,12 @@ class UserManager(models.Manager):
         user = User.objects.get(login=log)
         print(user.ava)
 
-
 class User(models.Model):
     login = models.CharField(max_length=20)
     password = models.CharField(max_length=20)
     email = models.CharField(max_length=50)
     ava = models.ImageField(upload_to='avatar', blank=True)
-    #movie = models.ForeignKey(movieScore)
+    #movie = models.ForeignKey(movieScore, on_delete=models.CASCADE, null=True)
     objects = UserManager()
 
     class Meta:

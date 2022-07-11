@@ -2,7 +2,7 @@ from django.db import models
 
 class MovieManager(models.Manager):
     def get_name(self, movie_id):
-        movie = Movie.objects.get(movieId=movie_id)
+        movie = Movie.objects.get(pk=movie_id)
         return movie.name
 
 class Movie(models.Model):

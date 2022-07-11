@@ -16,7 +16,7 @@ Including another URLconf
 
 from django.urls import path, include
 
-from authorization.views import ShowAvatar
+from authorization.views import profile
 from .views import home, home_id
 
 urlpatterns = [
@@ -24,4 +24,5 @@ urlpatterns = [
     path('', include('authorization.urls')),
     path('', include('movie.urls')),
     path('<int:user_id>', home_id),
+    path('<int:user_id>/profile', profile),
 ]

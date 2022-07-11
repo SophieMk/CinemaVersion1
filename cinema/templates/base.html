@@ -42,10 +42,11 @@
 				</div>
 				<div class="profile">
 					{% if logged_in %}
-						<img src="{{BASE_DIR}}/media/{{user.ava}}" alt="profile">
+						<a href="http://127.0.0.1:8000/{{user.pk}}/profile"><img src="{{BASE_DIR}}/media/{{user.ava}}" alt="profile"></a>
 					{% else %}
 						<img src="{% static 'img/incognito.png' %}" alt="profile">
 					{% endif %}
+
 					<div class="login" {% if logged_in %} style="display: none" {% endif %}>
 						<div class="login-container">
 							<a href="{{BASE_DIR}}/log_in"><img src="{% static 'img/login.svg' %}" alt="login"></a>

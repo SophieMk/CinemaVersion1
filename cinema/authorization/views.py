@@ -1,14 +1,13 @@
 from django.shortcuts import render, redirect, get_object_or_404
 from django.views.generic import DetailView
 from .forms import registrationForm, log_inForm
-from .models import User, UserManager
+from .models import User, movieScore
 
 
 class ShowAvatar(DetailView):
     model = User
     queryset = User.objects.all()
     context_object_name = 'user'
-    #template_name = 'base.html'
 
     def get_ava(self, log, pas):
         user = User.objects.get(login=log)
@@ -48,14 +47,14 @@ def log_in_form(request, self=None):
         if log_in.is_valid():
             login = log_in.cleaned_data.get("login")
             password = log_in.cleaned_data.get("password")
-            print(login)
-            print(password)
             u_id = ShowAvatar.get_id(self, login, password)
-            print(u_id)
             return redirect('http://127.0.0.1:8000/' + str(u_id))
     else:
         log_in = log_inForm()
     return render(request, 'log_in.html', {'log_in': log_in})
 
-
-
+def profile(request, user_id):
+    user = User.objects.get(pk=user_id)
+    #Movies = user.movie
+    movies = movieScore.objects.filter(user_id=user_id).exclude(movie_name="movie_name")
+    return render(request, 'profile.html', {'movies': movies, 'user': user, 'logged_in': True})
