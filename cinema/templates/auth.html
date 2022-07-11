@@ -8,7 +8,7 @@
 {% block main %}
 
 <div class="auth_field_container">
-    <form method="POST"  class="auth_field">
+    <form enctype="multipart/form-data" method="POST"  class="auth_field">
       <fieldset class="auth_text">
         <legend>Регистрация</legend>
         {% csrf_token %}

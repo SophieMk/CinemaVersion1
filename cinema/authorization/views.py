@@ -29,7 +29,7 @@ class ShowAvatar(DetailView):
 
 def reg_form(request):
     if request.method == "POST":
-        form = registrationForm(request.POST)
+        form = registrationForm(request.POST, request.FILES)
         if form.is_valid():
             login = form.cleaned_data.get("login")
             password = form.cleaned_data.get("password")
