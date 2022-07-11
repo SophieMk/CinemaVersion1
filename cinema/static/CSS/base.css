@@ -211,6 +211,27 @@ body {
 	background: rgba(0, 0, 0, 0.35);
 }
 
+select {
+    width: 40px;
+    height: 35px;
+    padding: 4px;
+    border-radius: 4px;
+    background: #192135;
+    border: none;
+    outline: none;
+    display: inline-block;
+    -webkit-appearance:none;
+    -moz-appearance: none;
+    appearance: none;
+    cursor: pointer;
+    margin-left: 5%;
+}
+
+option {
+    text-align: center;
+}
+
+
 .main .right-border {
 	width: 7.5%;
 	height: 100%;
