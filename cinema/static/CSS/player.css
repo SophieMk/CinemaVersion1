@@ -27,6 +27,7 @@
 
 .movie-img{
     width: 30vw;
+    min-width: 300px;
     height: 50vh;
     margin: 3%;
     margin-left: 5%;
